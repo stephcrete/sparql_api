@@ -4,7 +4,9 @@ from flask import render_template, request
 import connexion
 import config, sparql_query_templates, sparql_functions
 from OpenSSL import SSL
-context = SSL.Context(SSL.PROTOCOL_TLSv1_2)
+context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+context.minimum_version = ssl.TLSVersion.TLSv1_3
+context.maximum_version = ssl.TLSVersion.TLSv1_3
 context.use_privatekey_file('/root/server.key')
 context.use_certificate_file('/root/server.crt')
 
