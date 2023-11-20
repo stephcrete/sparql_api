@@ -44,7 +44,7 @@ get_classification_items_estat = """
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-    SELECT ?s ?code ?Broader_code ?label WHERE {
+    SELECT DISTINCT ?s ?code ?Broader_code ?label WHERE {
     ?s a skos:Concept ;
         skos:inScheme <~~uri~~> ;
         skos:prefLabel ?label ;
